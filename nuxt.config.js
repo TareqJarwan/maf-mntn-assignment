@@ -33,10 +33,30 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/pwa',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  pwa: {
+    meta: {
+      name: 'MNTN',
+      description: 'MNTN - App for Hiking mountains',
+      author: 'Tareq Jarwan'
+    },
+    manifest: {
+      name: 'MNTN',
+      short_name: 'MNTN',
+      description: 'MNTN - App for Hiking mountains',
+      lang: 'en',
+      theme_color: '#ffffff',
+    },
+    icon: {
+      fileName: 'Webclip.png',
+      sizes: [64, 120, 144, 152, 192, 384, 512],
+    }
+
   }
 }

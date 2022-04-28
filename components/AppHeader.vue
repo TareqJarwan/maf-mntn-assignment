@@ -2,9 +2,11 @@
   <section class="app__header">
     <div class="app__header-bg">
       <div class="transition-group" />
-      <img src="../assets/images/HG.png" alt="" class="app__header-bg_img1" />
-      <img src="../assets/images/MG.png" alt="" class="app__header-bg_img2" />
-      <img src="../assets/images/VG.png" alt="" class="app__header-bg_img3" />
+      <img
+        src="../assets/images/bg-image.webp"
+        alt="bg-image"
+        class="app__header-bg_img1"
+      />
     </div>
     <div class="app__header-content">
       <div class="sub_title">
@@ -41,20 +43,11 @@ export default {
 }
 
 .app__header {
-  height: 139vh;
+  height: 100vh;
   width: 100%;
   z-index: 1;
   left: 0;
   top: -80px;
-}
-
-.app__header-bg img {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  width: 100%;
-  height: auto;
 }
 
 .app__header-bg {
@@ -70,21 +63,15 @@ export default {
   background: linear-gradient(330deg, #0b1d26 31%, #0b1d26 100%);
 }
 
-.app__header-bg_img1 {
+.app__header-bg img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  width: 100%;
+  height: auto;
   position: absolute;
   top: -400px;
-  left: 0;
-}
-
-.app__header-bg_img2 {
-  position: absolute;
-  top: 235px;
-  left: 0;
-}
-
-.app__header-bg_img3 {
-  position: absolute;
-  top: 760px;
   left: 0;
 }
 
@@ -166,20 +153,35 @@ export default {
 
 @media screen and (min-width: 1800px) {
   .app__header {
-    height: 146vh;
+    height: 186vh;
   }
 
   .app__header-bg {
-    height: 181vh;
+    height: 200vh;
+  }
+
+  .transition-group {
+    bottom: -8%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .app__header-bg {
+    height: 75vh;
   }
 }
 
 @media screen and (max-width: 500px) {
   .transition-group {
-    bottom: 75%;
+    bottom: -31%;
   }
+
+  .app__header-bg {
+    height: 55vh;
+  }
+
   .app__header {
-    height: 60vh;
+    height: 70vh;
   }
 
   .app__header-content {
@@ -214,16 +216,8 @@ export default {
     height: 260vh;
   }
 
-  .app__header-bg_img1 {
+  .app__header-bg img {
     top: -70px;
-  }
-
-  .app__header-bg_img2 {
-    top: 70px;
-  }
-
-  .app__header-bg_img3 {
-    top: 225px;
   }
 }
 </style>
