@@ -1,29 +1,49 @@
 <template>
-  <div class="app__content">
-    <div class="app__content-container">
-      <h1 class="number">{{ leadingZeros(id + 1, 2) }}</h1>
-      <div class="sub_title">
-        <div />
-        <p>{{ content.subtitle }}</p>
+  <div>
+    <SocialMedia />
+    <div
+      class="app__content"
+      :class="[id % 2 == 0 ? '' : 'flex-wrap']"
+      :id="id + 1"
+    >
+      <div class="app__content-img" v-show="id % 2 == 1">
+        <img :src="image" alt="" />
       </div>
-      <h1 class="title">{{ content.title }}</h1>
-      <p class="description">{{ content.description }}</p>
-      <div class="action">
-        <p>read more</p>
-        <img src="../assets/images/arrow_right.svg" alt="arrow icon" />
-      </div>
-    </div>
 
-    <div class="app__content-img">
-      <img src="../assets/images/sec01.png" alt="" />
+      <div class="app__content-container">
+        <h1 class="number">{{ leadingZeros(id + 1, 2) }}</h1>
+        <div class="sub_title">
+          <div />
+          <p>{{ content.subtitle }}</p>
+        </div>
+        <h1 class="title">{{ content.title }}</h1>
+        <p class="description">{{ content.description }}</p>
+        <div class="action">
+          <p>read more</p>
+          <img src="../assets/images/arrow_right.svg" alt="arrow icon" />
+        </div>
+      </div>
+
+      <div class="app__content-img" v-show="id % 2 == 0">
+        <img :src="image" alt="" />
+      </div>
     </div>
+    <AppNavigation :active="id" />
   </div>
 </template>
 
 <script>
+import SocialMedia from "./SocialMedia.vue";
+import AppNavigation from "./AppNavigation.vue";
 export default {
   name: "AppContent",
+  components: { SocialMedia, AppNavigation },
   props: ["content", "id"],
+  data: function () {
+    return {
+      image: require("../assets/images/sec0" + (this.id + 1) + ".webp"),
+    };
+  },
   methods: {
     leadingZeros(num, places) {
       var zero = places - num.toString().length + 1;
@@ -142,15 +162,15 @@ export default {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
+  max-width: 400px;
+  height: 500px;
 
-.app__content-img:nth-child(2n + 1) {
-  justify-content: flex-start;
+  margin-bottom: 70px;
 }
 
 .app__content-img img {
-  width: 400px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (min-width: 2000px) {
@@ -164,7 +184,7 @@ export default {
     top: -25%;
   }
 
-  .app__content-img img {
+  .app__content-img {
     width: 570px;
     height: 720px;
   }
@@ -200,7 +220,7 @@ export default {
     max-width: 100%;
   }
 
-  .app__content-img img {
+  .app__content-img {
     width: 300px;
     height: 400px;
   }
@@ -258,7 +278,7 @@ export default {
     max-width: 100%;
   }
 
-  .app__content-img img {
+  .app__content-img {
     width: 250px;
     height: 350px;
   }
@@ -327,7 +347,7 @@ export default {
     margin-top: 20px;
   }
 
-  .app__content-img img {
+  .app__content-img {
     width: 100%;
     height: auto;
   }

@@ -90,4 +90,12 @@ ul {
   justify-content: center;
   align-items: center;
 }
+
+.flex-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
 </style>

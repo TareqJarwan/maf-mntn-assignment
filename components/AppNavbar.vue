@@ -195,15 +195,15 @@ export default {
   .app__navbar-links {
     display: none;
   }
-
-  .app__navbar-smallscreen {
-    display: flex;
-  }
 }
 
 @media screen and (max-width: 650px) {
   .app__navbar {
     padding: 1rem;
+  }
+
+  .app__navbar-smallscreen {
+    display: flex;
   }
 
   .app__navbar-navigation {
