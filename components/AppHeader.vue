@@ -1,28 +1,33 @@
 <template>
-  <section class="app__header">
-    <div class="app__header-bg">
-      <div class="transition-group" />
-      <img
-        src="../assets/images/bg-image.webp"
-        alt="bg-image"
-      />
-    </div>
-    <div class="app__header-content">
-      <div class="sub_title">
-        <div />
-        <p>A Hiking guide</p>
+  <div>
+    <SocialMedia />
+    <section class="app__header">
+      <div class="app__header-bg">
+        <div class="transition-group" />
+        <img src="../assets/images/bg-image.webp" alt="bg-image" />
       </div>
-      <h1 class="title">Be prepared for the Mountains and beyond!</h1>
-      <div class="action">
-        <p>scroll down</p>
-        <img src="../assets/images/arrow_downward.svg" alt="arrow icon" />
+      <div class="app__header-content">
+        <div class="sub_title">
+          <div />
+          <p>A Hiking guide</p>
+        </div>
+        <h1 class="title">Be prepared for the Mountains and beyond!</h1>
+        <div class="action">
+          <p>scroll down</p>
+          <img src="../assets/images/arrow_downward.svg" alt="arrow icon" />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <AppNavigation :active="Start" />
+  </div>
 </template>
 
 <script>
+import SocialMedia from "./SocialMedia.vue";
+import AppNavigation from "./AppNavigation.vue";
+
 export default {
+  components: { SocialMedia, AppNavigation },
   name: "AppHeader",
 };
 </script>
@@ -34,11 +39,7 @@ export default {
   left: 0px;
   width: 100%;
   height: 200px;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 29, 38, 0) 30%,
-    #0b1d26 100%
-  );
+  background: linear-gradient(180deg, rgba(11, 29, 38, 0) 30%, #0b1d26 100%);
 }
 
 .app__header {
@@ -206,8 +207,6 @@ export default {
   .app__header {
     height: 70vh;
   }
-
-
 
   .app__header-content .app__header-bg {
     height: 260vh;

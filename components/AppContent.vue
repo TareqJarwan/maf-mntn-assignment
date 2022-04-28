@@ -1,32 +1,43 @@
 <template>
-  <div class="app__content" :class="[id % 2 == 0 ? '' : 'flex-wrap']">
-    <div class="app__content-img" v-show="id % 2 == 1">
-      <img :src="image" alt="" />
-    </div>
-
-    <div class="app__content-container">
-      <h1 class="number">{{ leadingZeros(id + 1, 2) }}</h1>
-      <div class="sub_title">
-        <div />
-        <p>{{ content.subtitle }}</p>
+  <div>
+    <SocialMedia />
+    <div
+      class="app__content"
+      :class="[id % 2 == 0 ? '' : 'flex-wrap']"
+      :id="id + 1"
+    >
+      <div class="app__content-img" v-show="id % 2 == 1">
+        <img :src="image" alt="" />
       </div>
-      <h1 class="title">{{ content.title }}</h1>
-      <p class="description">{{ content.description }}</p>
-      <div class="action">
-        <p>read more</p>
-        <img src="../assets/images/arrow_right.svg" alt="arrow icon" />
+
+      <div class="app__content-container">
+        <h1 class="number">{{ leadingZeros(id + 1, 2) }}</h1>
+        <div class="sub_title">
+          <div />
+          <p>{{ content.subtitle }}</p>
+        </div>
+        <h1 class="title">{{ content.title }}</h1>
+        <p class="description">{{ content.description }}</p>
+        <div class="action">
+          <p>read more</p>
+          <img src="../assets/images/arrow_right.svg" alt="arrow icon" />
+        </div>
+      </div>
+
+      <div class="app__content-img" v-show="id % 2 == 0">
+        <img :src="image" alt="" />
       </div>
     </div>
-
-    <div class="app__content-img" v-show="id % 2 == 0">
-      <img :src="image" alt="" />
-    </div>
+    <AppNavigation :active="id" />
   </div>
 </template>
 
 <script>
+import SocialMedia from "./SocialMedia.vue";
+import AppNavigation from "./AppNavigation.vue";
 export default {
   name: "AppContent",
+  components: { SocialMedia, AppNavigation },
   props: ["content", "id"],
   data: function () {
     return {
