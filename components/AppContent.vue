@@ -1,10 +1,7 @@
 <template>
-  <div
-    class="app__content"
-    :class="[id % 2 == 0 ? '' : 'flex-wrap']"
-  >
+  <div class="app__content" :class="[id % 2 == 0 ? '' : 'flex-wrap']">
     <div class="app__content-img" v-show="id % 2 == 1">
-      <img src="../assets/images/sec01.webp" alt="" />
+      <img :src="image" alt="" />
     </div>
 
     <div class="app__content-container">
@@ -22,7 +19,7 @@
     </div>
 
     <div class="app__content-img" v-show="id % 2 == 0">
-      <img src="../assets/images/sec01.webp" alt="" />
+      <img :src="image" alt="" />
     </div>
   </div>
 </template>
@@ -31,6 +28,11 @@
 export default {
   name: "AppContent",
   props: ["content", "id"],
+  data: function () {
+    return {
+      image: require("../assets/images/sec0" + (this.id + 1) + ".webp"),
+    };
+  },
   methods: {
     leadingZeros(num, places) {
       var zero = places - num.toString().length + 1;

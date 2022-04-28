@@ -5,7 +5,6 @@
       <img
         src="../assets/images/bg-image.webp"
         alt="bg-image"
-        class="app__header-bg_img1"
       />
     </div>
     <div class="app__header-content">
@@ -31,19 +30,19 @@ export default {
 <style>
 .transition-group {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 0px;
   width: 100%;
-  height: 100px;
+  height: 200px;
   background: linear-gradient(
-    330.24deg,
-    rgba(11, 29, 38, 0) 31.06%,
-    #0b1d26 108.93%
+    180deg,
+    rgba(11, 29, 38, 0) 30%,
+    #0b1d26 100%
   );
 }
 
 .app__header {
-  height: 100vh;
+  height: auto;
   width: 100%;
   z-index: 1;
   left: 0;
@@ -59,7 +58,7 @@ export default {
   opacity: 0.5;
 
   position: relative;
-  height: 173vh;
+  height: 217vh;
   background: linear-gradient(330deg, #0b1d26 31%, #0b1d26 100%);
 }
 
@@ -151,37 +150,19 @@ export default {
   height: 24px;
 }
 
-@media screen and (min-width: 1800px) {
+@media screen and (min-width: 1700px) {
   .app__header {
     height: 186vh;
   }
 
   .app__header-bg {
-    height: 200vh;
-  }
-
-  .transition-group {
-    bottom: -8%;
+    height: 217vh;
   }
 }
 
 @media screen and (max-width: 650px) {
   .app__header-bg {
     height: 75vh;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .transition-group {
-    bottom: -31%;
-  }
-
-  .app__header-bg {
-    height: 55vh;
-  }
-
-  .app__header {
-    height: 70vh;
   }
 
   .app__header-content {
@@ -211,6 +192,22 @@ export default {
     font-size: 36px;
     line-height: 60px;
   }
+}
+
+@media screen and (max-width: 500px) {
+  .transition-group {
+    bottom: -31%;
+  }
+
+  .app__header-bg {
+    height: 55vh;
+  }
+
+  .app__header {
+    height: 70vh;
+  }
+
+
 
   .app__header-content .app__header-bg {
     height: 260vh;
